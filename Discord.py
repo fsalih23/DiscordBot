@@ -75,4 +75,3 @@ async def setup():
     await client.wait_until_ready()
     client.add_cog(Player(client))
 client.loop.create_task(setup())
-client.run("ODY5MzgzODc5NDUzMjAwNDY0.YP9a1Q.cQZga79gstRaCpzL66FGNUB0njY")
