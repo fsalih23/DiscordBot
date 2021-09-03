@@ -6,7 +6,6 @@ from discord.member import Member
 from music import Player
 intents = discord.Intents.all()
 client = commands.Bot(command_prefix = ".", intents=intents)
-curse_words = ["nerd", "fuck", "bitch", "nigga", "nigger", "retard", "garbagelow", "cancerlow", "reject", "monkey", "dog", "cunt", "jew", "n**ga", "nword", "fag", "faggot", "slut", "retard", "idiot", "you animal", "kys", "dick", "vagina", "pussy", "feet"]
 random_jokes = ["Whoever said that the definition of insanity is doing the same thing over and over again and expecting different results has obviously never had to reboot a computer.", "Did you hear about the monkeys who shared an Amazon account? They were Prime mates.", "How much money does a pirate pay for corn? A buccaneer.",  "I'm a big fan of whiteboards. I find them quite re-markable.", """How do you stay warm in an empty room?
 Go stand in the corner—it’s always 90 degrees.""", """Never trust math teachers who use graph paper. They're always plotting something.""", """What do you call friends who love math? Algebros""",  """Who is the leader of the Kitty Communist Party?
 Chairman Meow.""", """What is the difference between capitalism and socialism?
@@ -22,15 +21,6 @@ async def on_member_join(member):
 @client.event
 async def on_member_remove(member):
     print(f"{member} was not a true Rager after all!")
-@client.event
-async def on_message(message):
-    await client.process_commands(message)
-    Role = 870850009220919316
-    for word in curse_words:
-        if word in message.content:
-            await message.author.edit(roles = [])
-            await message.author.add_roles(discord.Object(Role))
-            break
 @client.command()
 @commands.has_role("King Vamp")
 async def free(ctx, member: discord.Member):
